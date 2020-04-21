@@ -34,3 +34,27 @@ LinkList List_TailInsert(LinkList &L) {
 	r->next = NULL;
 	return L;
 }
+
+LNode *getElem(LinkList L, int i) {
+	int j = 1;
+	LNode *p = L->next;
+	if (i == 0) {
+		return L;
+	}
+	if (i < 0) {
+		return NULL;
+	}
+	while (p != NULL && j < i) {
+		p = p->next;
+		j++;
+	}
+	return p;
+}
+
+LNode* locateElem(LinkList L, elemType e) {
+	LNode* p = L->next;
+	while (p != NULL && p->data != e) {
+		p = p->next;
+	}
+	return p;
+}
